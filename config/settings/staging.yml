@@ -1,0 +1,10 @@
+meet_server: "https://meet-dev.attribes.com"
+
+## Outlook / Microsoft Graph
+client_id:          "c602602f-04a1-44d7-b37b-b6a4ed00dcbc"
+client_secret:      "W/=v=5L5-wp1p3CJ[vuU:T2nx0RxdjM9"
+callback_url:       "http://localhost:3000/settings/outlook"
+mg_microsoft_site:  "https://login.microsoftonline.com"
+mg_authorize_url:   "/common/oauth2/v2.0/authorize"
+mg_token_url:       "/common/oauth2/v2.0/token"
+mg_graph_base_url:  "https://graph.microsoft.com/v1.0"
