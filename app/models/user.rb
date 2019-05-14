@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   ## Validations
-  validates :name, :email, presence: true
+  validates :email, presence: true
   validates :password, presence: true, on: :create
 
   ## Hooks  

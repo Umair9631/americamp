@@ -1,5 +1,6 @@
 class Api::V1::ApiController < ApplicationController
   before_action :authenticate_via_token
+  skip_before_action :verify_authenticity_token
 
   private
     def authenticate_via_token

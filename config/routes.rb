@@ -8,18 +8,16 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  resources :rooms, only: [:index, :new, :create]
-  resources :meetings
-  resources :settings, only: [:index, :update] do
-    collection do
-      get :outlook
-    end
-  end
   
-  resources :admin
-  resources :guest, only: [:index] do
-    collection do
-      post :verify_pin
+  namespace :api do
+    namespace :v1 do
+
+      resources :users, only: [:show] do
+        collection do
+          post :signin
+        end
+      end
+
     end
   end
   
