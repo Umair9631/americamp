@@ -11,9 +11,9 @@
       </li>
       
       <% if current_user.has_role?(:admin) %>
-        <li class="sidenav-item<%= current_page?(admin_index_path) ? ' active' : '' %>">
-          <%= link_to admin_index_path, class: "sidenav-link" do %>
-            <i class="sidenav-icon ion ion-ios-contact"></i><div>Users</div>
+        <li class="sidenav-item<%= current_page?(root_path) ? ' active' : '' %>">
+          <%= link_to "#!", class: "sidenav-link" do %>
+            <i class="sidenav-icon ion ion-ios-contact"></i><div>Agents</div>
           <% end %>
         </li>
       <% end %>      
