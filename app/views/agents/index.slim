@@ -36,9 +36,9 @@ hr.border-light.container-m--x.mt-0.mb-4/
                     td
                       = link_to edit_agent_path(agent), class: 'lnr-icon-md', title: 'Edit Agent' do
                         i.lnr.lnr-pencil
-                      |   &nbsp;
-                      = link_to "JavaScript:void(0);", class: 'lnr-icon-md error lnk-trash', data: { id: agent.id},  title: 'Delete Agent' do
-                        i.lnr.lnr-trash
+                      / |   &nbsp;
+                      / = link_to "JavaScript:void(0);", class: 'lnr-icon-md error lnk-trash', data: { id: agent.id},  title: 'Delete Agent' do
+                      /   i.lnr.lnr-trash
 
         .row
           .col-sm-12.col-md-5            

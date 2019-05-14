@@ -1,5 +1,6 @@
 class AgentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, only: [:edit, :update]
 
   def index
     @agents = User.with_role(:agent).page(params[:page])
@@ -7,6 +8,11 @@ class AgentsController < ApplicationController
 
   def new
     @agent = User.new
+    @path = "/agents"
+  end
+
+  def edit
+    @path = "/agents/#{@agent.id}"
   end
 
   def create
@@ -26,6 +32,16 @@ class AgentsController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @agent.update(user_params)
+        format.html { redirect_to agents_path, notice: 'Agent was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
   private
     def user_params
       if params[:user][:password].blank?
@@ -36,7 +52,7 @@ class AgentsController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:id])
+      @agent = User.find(params[:id])
     end
 
 end
