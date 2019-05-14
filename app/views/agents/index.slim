@@ -28,9 +28,9 @@ hr.border-light.container-m--x.mt-0.mb-4/
                   th Email                  
                   th Actions
               tbody
-                - @agents.each do |agent|
+                - @agents.each_with_index do |agent, index|
                   tr
-                    td=agent.id
+                    td= index + 1
                     td=agent.name
                     td=agent.email
                     td
@@ -39,5 +39,13 @@ hr.border-light.container-m--x.mt-0.mb-4/
                       |   &nbsp;
                       = link_to "JavaScript:void(0);", class: 'lnr-icon-md error lnk-trash', data: { id: agent.id},  title: 'Delete Agent' do
                         i.lnr.lnr-trash
+
+        .row
+          .col-sm-12.col-md-5            
+          .col-sm-12.col-md-7
+            #DataTables_Table_1_paginate.dataTables_paginate.paging_simple_numbers
+              = paginate @agents
+  
+  
   - else
     p.no-record No agent found.

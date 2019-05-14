@@ -2,7 +2,7 @@ class AgentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @agents = User.with_role :agent
+    @agents = User.with_role(:agent).page(params[:page])
   end
 
   def new

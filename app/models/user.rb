@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   rolify
+  paginates_per 10
 
   ## Associations  
   
