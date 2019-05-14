@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
+  resources :agents
+
   
   namespace :api do
     namespace :v1 do

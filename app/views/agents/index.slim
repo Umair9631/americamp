@@ -1,0 +1,43 @@
+- content_for :styles do
+  = stylesheet_link_tag 'bootstrap-sweetalert/bootstrap-sweetalert.css', media: 'all'
+  = stylesheet_link_tag 'datatables/datatables.css', media: 'all'
+
+- content_for :scripts do  
+  = javascript_include_tag 'bootstrap-sweetalert/bootstrap-sweetalert.js'
+
+
+h4.d-flex.justify-content-between.align-items-center
+  span.text-muted.font-weight-light Agents
+  = link_to new_agent_path, class: 'btn btn-primary rounded-pill d-block' do
+    span.ion.ion-md-add
+    | &nbsp; Add Agent
+  
+hr.border-light.container-m--x.mt-0.mb-4/
+
+.card  
+  - if @agents.any?
+    .card-datatable.table-responsive
+      #DataTables_Table_1_wrapper.dataTables_wrapper.dt-bootstrap4.no-footer      
+        .row
+          .col-sm-12
+            table#DataTables_Table_1.datatables-demo.table.table-striped.table-bordered.dataTable.no-footer aria-describedby="DataTables_Table_1_info" role="grid" 
+              thead
+                tr role="row" 
+                  th #
+                  th Name
+                  th Email                  
+                  th Actions
+              tbody
+                - @agents.each do |agent|
+                  tr
+                    td=agent.id
+                    td=agent.name
+                    td=agent.email
+                    td
+                      = link_to edit_agent_path(agent), class: 'lnr-icon-md', title: 'Edit Agent' do
+                        i.lnr.lnr-pencil
+                      |   &nbsp;
+                      = link_to "JavaScript:void(0);", class: 'lnr-icon-md error lnk-trash', data: { id: agent.id},  title: 'Delete Agent' do
+                        i.lnr.lnr-trash
+  - else
+    p.no-record No agent found.

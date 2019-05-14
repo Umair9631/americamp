@@ -1,0 +1,33 @@
+h4.d-flex.justify-content-between.align-items-center
+  span.text-muted.font-weight-light Add Agent  
+  
+hr.border-light.container-m--x.mt-0.mb-4/
+
+- if @agent.errors.any?
+  .alert.alert-danger
+    h3
+      = pluralize(@agent.errors.count, "error")
+      |  prohibited this meeting from being saved:
+ 
+    ul
+      - @agent.errors.full_messages.each do |msg|
+        li = msg
+
+.card.mb-4
+  .card-body
+    = form_for @agent, url: '/agents', html: {id: "agent_form"} do |f|
+      .form-group
+        = f.label :name, class: 'form-label'
+        = f.text_field :name, class: 'form-control'
+
+      .form-group
+        = f.label :email, class: 'form-label'
+        = f.text_field :email, class: 'form-control'
+
+      .form-group
+        = f.label :password, class: 'form-label'
+        = f.text_field :password, class: 'form-control'
+
+      = f.submit 'Submit', class: 'btn btn-default btn-add-agent'
+      |        
+      = link_to 'Cancel', agents_path, class: 'btn btn-danger'
