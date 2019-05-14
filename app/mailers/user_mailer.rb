@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default :from => '"Attribe Meet" <hello@attribemeet.com>'
+  default :from => '"AmeriCamp" <hello@americamp.com>'
 
   def invitation email, user, meeting
     @user     = user

@@ -14,8 +14,11 @@ class AgentsController < ApplicationController
     
     respond_to do |format|
       if @user.save
+        ## Assign role to agent
         @user.add_role :agent
-        # UserMailer.new_user_account(@user, user_params[:password]).deliver_now
+
+        ## Send email to agent
+        AgentMailer.new_account(@user, user_params[:password]).deliver_now
         format.html { redirect_to agents_path, notice: 'Agent has been added successfully.' }
       else
         format.html { render :new }
