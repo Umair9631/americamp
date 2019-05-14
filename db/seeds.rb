@@ -9,7 +9,7 @@
 Role.delete_all
 ActiveRecord::Base.connection.execute("ALTER SEQUENCE roles_id_seq RESTART WITH 1")
 
-['admin', 'user',].each do |role_name|
+['admin', 'contact', 'agent'].each do |role_name|
   Role.create! name: role_name
 end
 puts "Roles created successfully."
