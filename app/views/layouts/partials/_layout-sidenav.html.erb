@@ -1,8 +1,22 @@
 <!-- Layout sidenav -->
-<div id="layout-sidenav" class="<% if local_assigns[:horizontal] == true %>layout-sidenav-horizontal sidenav-horizontal container-p-x flex-grow-0<% else %>layout-sidenav sidenav-vertical<% end %> sidenav bg-sidenav-theme">
+<div id="layout-sidenav" class="<% if local_assigns[:horizontal] == true %>layout-sidenav-horizontal sidenav-horizontal container-p-x flex-grow-0<% else %>layout-sidenav sidenav-vertical<% end %> sidenav bg-danger">
 
   <!-- Inner -->
   <ul class="sidenav-inner<% if local_assigns[:horizontal] != true %> py-1<% end %>">
+    <li class="sidenav-block my-1">
+      <div class="media align-items-center">        
+        <%= image_tag '1-small.png', class: 'd-block ui-w-50 rounded-circle' %>
+        <div class="media-body pl-3">
+          <h5 class="sidenav-text mb-1">Mike Greene</h5>
+          <div class="small">
+            <a href="javascript:void(0)" class="sidenav-link">
+              <strong class="sidenav-text">5</strong> new messages</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="sidenav-divider mt-0"></li>
+
     <% if user_signed_in? %>
       <li class="sidenav-item<%= current_page?(root_path) ? ' active' : '' %>">
         <%= link_to root_path, class: "sidenav-link" do %>

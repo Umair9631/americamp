@@ -23,14 +23,14 @@ hr.border-light.container-m--x.mt-0.mb-4/
             table#DataTables_Table_1.datatables-demo.table.table-striped.table-bordered.dataTable.no-footer aria-describedby="DataTables_Table_1_info" role="grid" 
               thead
                 tr role="row" 
-                  th #
+                  th ID
                   th Name
                   th Email                  
                   th Actions
               tbody
                 - @agents.each_with_index do |agent, index|
                   tr
-                    td= index + 1
+                    td=agent.id
                     td=agent.name
                     td=agent.email
                     td
