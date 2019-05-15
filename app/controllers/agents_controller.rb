@@ -34,17 +34,19 @@ class AgentsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @agent.update(user_params)
+      begin
+        @agent.update!(user_params)
         format.html { redirect_to agents_path, notice: 'Agent was successfully updated.' }
-      else
+      rescue Exception => e
+        @path = "/agents/#{@agent.id}"
         format.html { render :edit }
-      end
+      end      
     end
   end
 
   private
-    def user_params
-      if params[:user][:password].blank?
+    def user_params      
+      if params[:user][:password].blank?        
         params.fetch(:user, {}).permit(:name, :email)
       else
         params.fetch(:user, {}).permit(:name, :email, :password)
