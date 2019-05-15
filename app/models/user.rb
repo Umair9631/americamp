@@ -2,7 +2,9 @@ class User < ApplicationRecord
   rolify
   paginates_per 10
 
-  ## Associations  
+  ## Associations
+  has_one :personal_info
+  
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
