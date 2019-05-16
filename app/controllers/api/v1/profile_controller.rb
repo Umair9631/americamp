@@ -6,6 +6,11 @@ class Api::V1::ProfileController < Api::V1::ApiController
     ## Update Personal Info addresses
     p_info.update_addresses(params[:personal_info][:addresses])
 
+    ## Update Educational Background
+    edu_background = EducationalBackground.where(user_id: @user.id).first_or_initialize
+    edu_background.update_attributes!(education_params)
+    
+
     
   end
 
@@ -19,6 +24,10 @@ class Api::V1::ProfileController < Api::V1::ApiController
     end
 
     def education_params
-      params.fetch(:education, {}).permit(:full_time_student)
+      params.fetch(:educational_background, {}).permit(
+                    :is_fulltime_student, :university_name,
+                    :course_title, :mnth_yr_began_studies, :graduation_mnth_yr,
+                    :summer_holiday_from, :summer_holiday_to, :background
+                    )
     end
 end

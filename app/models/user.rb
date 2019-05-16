@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   ## Associations
   has_one :personal_info
+  has_one :educational_background
   
   
   # Include default devise modules. Others available are:

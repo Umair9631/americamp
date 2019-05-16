@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_065433) do
+ActiveRecord::Schema.define(version: 2019_05_16_094624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,20 @@ ActiveRecord::Schema.define(version: 2019_05_16_065433) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "educational_backgrounds", force: :cascade do |t|
+    t.boolean "is_fulltime_student"
+    t.string "university_name"
+    t.string "course_title"
+    t.string "mnth_yr_began_studies"
+    t.string "graduation_mnth_yr"
+    t.date "summer_holiday_from"
+    t.date "summer_holiday_to"
+    t.string "background"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
