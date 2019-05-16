@@ -44,6 +44,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'config'
 gem 'kaminari'
 gem 'jwt'
+
+## Using for polymorphic associations
+gem 'acts_as_favoritor'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
