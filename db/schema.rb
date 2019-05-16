@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_094624) do
+ActiveRecord::Schema.define(version: 2019_05_16_105655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,28 @@ ActiveRecord::Schema.define(version: 2019_05_16_094624) do
     t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
     t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor_type_and_favoritor_id"
     t.index ["scope"], name: "index_favorites_on_scope"
+  end
+
+  create_table "job_references", force: :cascade do |t|
+    t.text "why_work_at_camp"
+    t.text "positive_impact_at_camp"
+    t.text "why_camp_hire_you"
+    t.boolean "at_day_camp"
+    t.boolean "at_residential_camp"
+    t.boolean "with_female_campers"
+    t.boolean "with_male_campers"
+    t.boolean "with_family_groups"
+    t.boolean "with_children"
+    t.boolean "with_no_running_water"
+    t.boolean "with_no_electricity"
+    t.boolean "camp_with_platform_tent"
+    t.string "campers_with_special_needs"
+    t.string "interested_with_active_faith_based_program"
+    t.text "type_of_faith_based_camp"
+    t.boolean "affiliated_to_ymca_org"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "personal_infos", force: :cascade do |t|
