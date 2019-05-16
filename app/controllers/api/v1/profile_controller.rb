@@ -2,6 +2,9 @@ class Api::V1::ProfileController < Api::V1::ApiController
   def create
     p_info = PersonalInfo.where(user_id: @user.id).first_or_initialize
     p_info.update_attributes!(personal_info_params)
+    
+    ## Update Personal Info addresses
+    p_info.update_addresses(params[:personal_info][:addresses])
 
     
   end
